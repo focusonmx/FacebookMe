@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MeViewController: UIViewController {
     @IBOutlet weak var myTableView: UITableView!
     
     let basicList: [CellInfo] = [
@@ -52,9 +52,9 @@ class MeViewController: UIViewController, UITableViewDataSource, UITableViewDele
         return sectionList[section]
     }
     
-    
-    
-    
+}
+ 
+extension MeViewController: UITableViewDataSource{
     //  UITableViewDataSource
     
     //셀 몇 개
@@ -133,7 +133,9 @@ class MeViewController: UIViewController, UITableViewDataSource, UITableViewDele
         }
     }
 
-  
+}
+
+extension MeViewController: UITableViewDelegate{
     //UITableViewDelegate
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          
