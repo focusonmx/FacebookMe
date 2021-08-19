@@ -7,10 +7,13 @@
 
 import UIKit
 
-class MeViewController: UIViewController {
+class MeViewController: UIViewController{
     @IBOutlet weak var myTableView: UITableView!
     
-    let basicList: [CellInfo] = [
+    let sectionList: [String] = [" "," ","FAVORITES"," "," "]//섹션별 이름
+
+    
+    let basicList: [CellInfo] = [//두번째 섹션 데이터
         CellInfo(name: "Friends",imgname: "fb_friends"),
         CellInfo(name: "Events",imgname: "fb_events"),
         CellInfo(name: "Groups",imgname: "fb_groups"),
@@ -20,19 +23,18 @@ class MeViewController: UIViewController {
     
     ]
     
-    let favoriteList: [CellInfo] = [
+    let favoriteList: [CellInfo] = [//세번째 섹션 데이터
         CellInfo(name: "muck bang",imgname: " "),
         CellInfo(name: "K-pop",imgname: " ")
     ]
     
-    let etcList: [CellInfo] = [
+    let etcList: [CellInfo] = [//네번째 섹션 데이터
         CellInfo(name: "Settings",imgname: "fb_settings"),
         CellInfo(name: "Privacy Shortcuts",imgname: "fb_privacy_shortcuts"),
         CellInfo(name: "Help and Support",imgname: "fb_help_and_support")
         
     ]
     
-    let sectionList: [String] = [" "," ","FAVORITES"," "," "]
   
    
     
@@ -41,6 +43,13 @@ class MeViewController: UIViewController {
         // Do any additional setup after loading the view.
         myTableView.rowHeight = UITableView.automaticDimension
     }
+    
+  
+    
+}
+
+extension MeViewController: UITableViewDataSource{
+    //  UITableViewDataSource
     
     //섹션 개수
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -52,11 +61,12 @@ class MeViewController: UIViewController {
         return sectionList[section]
     }
     
-}
- 
-extension MeViewController: UITableViewDataSource{
-    //  UITableViewDataSource
-    
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if section == 1 {
+            return " "
+        }
+        return ""
+    }
     //셀 몇 개
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -75,11 +85,11 @@ extension MeViewController: UITableViewDataSource{
         }
         
     }
-    //어떻게 보여줄까
+    //셀 어떻게 보여줄까
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
      
         switch indexPath.section {
-        case 0:
+        case 0://첫번째 섹션
             let cell = tableView.dequeueReusableCell(withIdentifier: "profileCell", for: indexPath) as! ProfileCell
             cell.profileImg?.image = UIImage(named: "Loopy")
             cell.nameLabel?.text = "이유진"
@@ -88,13 +98,14 @@ extension MeViewController: UITableViewDataSource{
             
             return cell
             
-        case 1:
-            if indexPath.row == basicList.count {
+            
+        case 1://두번째 섹션
+            if indexPath.row == basicList.count {//두번째 섹션의 가장 마지막 셀, See More 버튼
                 let cell = tableView.dequeueReusableCell(withIdentifier: "btnCell", for: indexPath) as! BtnCell
                 cell.addBtn?.setTitle("See More...", for: .normal)
                 return cell
                 
-            } else {
+            } else {//두번째 섹션의 마지막 셀을 제외한 셀
             let cell = tableView.dequeueReusableCell(withIdentifier: "generalCell", for: indexPath) as! GeneralCell
             cell.iconImg?.image = basicList[indexPath.row].image
             cell.menuLabel?.text = basicList[indexPath.row].name
@@ -102,30 +113,35 @@ extension MeViewController: UITableViewDataSource{
             return cell
             }
                 
-        case 2:
-                if indexPath.row == favoriteList.count {
+            
+        case 2://세번째 섹션
+                if indexPath.row == favoriteList.count {//세번째 섹션의 가장 마지막 셀, Add Favorite 버튼
                     let cell = tableView.dequeueReusableCell(withIdentifier: "btnCell", for: indexPath) as! BtnCell
                     cell.addBtn?.setTitle("Add Favorites...", for: .normal)
                     return cell
                     
-                } else {
+                } else {//세번째 섹션의 마지막 셀을 제외한 셀
                     let cell = tableView.dequeueReusableCell(withIdentifier: "generalCell", for: indexPath) as! GeneralCell
                     cell.iconImg?.image = favoriteList[indexPath.row].image
                     cell.menuLabel?.text = favoriteList[indexPath.row].name
                     cell.chevImg?.image = UIImage(systemName: "chevron.right")
                     return cell
                 }
-        case 3:
+            
+            
+        case 3:// 네번째 섹션
             let cell = tableView.dequeueReusableCell(withIdentifier: "generalCell", for: indexPath) as! GeneralCell
             cell.iconImg?.image = etcList[indexPath.row].image
             cell.menuLabel?.text = etcList[indexPath.row].name
             cell.chevImg?.image = UIImage(systemName: "chevron.right")
             return cell
             
-        case 4:
+            
+        case 4:// 다섯번째 섹션
             let cell = tableView.dequeueReusableCell(withIdentifier: "logOutCell", for: indexPath) as! LogOutCell
-            cell.logOutBtn?.setTitle("Log Out", for: .normal)
+            cell.logOutBtn?.setTitle("Log Out",for: .normal)
             return cell
+            
             
         default:
             return UITableViewCell()
@@ -144,38 +160,7 @@ extension MeViewController: UITableViewDelegate{
 
 }
 
-class ProfileCell: UITableViewCell {
-    @IBOutlet weak var profileImg: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var introLabel: UILabel!
-    @IBOutlet weak var chevImg: UIImageView!
-}
-
-class GeneralCell: UITableViewCell {
-    @IBOutlet weak var iconImg: UIImageView!
-    @IBOutlet weak var menuLabel: UILabel!
-    @IBOutlet weak var chevImg: UIImageView!
-}
-
-class BtnCell: UITableViewCell {
-    @IBOutlet weak var addBtn: UIButton!
-}
-
-class LogOutCell: UITableViewCell {
-    @IBOutlet weak var logOutBtn: UIButton!
-}
 
 
-struct CellInfo {
-    let name: String
-    let imgname: String
-    let image: UIImage?
-    
-    
-    init(name: String,imgname: String){
-        self.name = name
-        self.imgname = imgname
-        self.image = UIImage(named: imgname)
-    }
-}
+
 

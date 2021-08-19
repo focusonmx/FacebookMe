@@ -86,14 +86,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="syo-W0-mvg">
-                                                    <rect key="frame" x="16" y="9.3333333333333357" width="25" height="25"/>
+                                                    <rect key="frame" x="16" y="12" width="20" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="25" id="N8x-AM-Ndi"/>
-                                                        <constraint firstAttribute="width" constant="25" id="mXW-1v-VDB"/>
+                                                        <constraint firstAttribute="height" constant="20" id="N8x-AM-Ndi"/>
+                                                        <constraint firstAttribute="width" constant="20" id="mXW-1v-VDB"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABF-f3-gDX">
-                                                    <rect key="frame" x="51" y="11.333333333333336" width="280" height="21"/>
+                                                    <rect key="frame" x="46" y="11.333333333333336" width="280" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="280" id="dpO-Ns-aVS"/>
                                                     </constraints>
@@ -121,6 +121,7 @@
                                                 <constraint firstItem="syo-W0-mvg" firstAttribute="leading" secondItem="tzw-VX-XbO" secondAttribute="leading" constant="16" id="jFY-8G-cJh"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="50" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="chevImg" destination="HvW-J3-R1a" id="F0g-OW-ahY"/>
                                             <outlet property="iconImg" destination="syo-W0-mvg" id="TnW-95-76P"/>
@@ -146,6 +147,7 @@
                                         <constraints>
                                             <constraint firstItem="0ot-tn-ovd" firstAttribute="centerY" secondItem="4TK-yN-Tzf" secondAttribute="centerY" id="BGu-m5-row"/>
                                         </constraints>
+                                        <inset key="separatorInset" minX="50" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="addBtn" destination="0ot-tn-ovd" id="Yqs-Gg-n1O"/>
                                         </connections>
@@ -181,10 +183,6 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="3km-0R-Tim"/>
                                 </connections>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Kg5-x3-1FW">
-                                <rect key="frame" x="10" y="1" width="110" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <constraints>
