@@ -9,7 +9,7 @@ import UIKit
 
 struct CellInfo {
     let name: String
-    let imgname: String//imgName
+    let imgname: String
     let image: UIImage?
     
     

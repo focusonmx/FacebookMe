@@ -20,7 +20,7 @@ class GeneralCell: UITableViewCell {
     @IBOutlet weak var chevImg: UIImageView!
 }
 
-class AddCell: UITableViewCell {//btn -> button 줄이지않기
+class AddCell: UITableViewCell {
     @IBOutlet weak var addButton: UIButton!
 }
 

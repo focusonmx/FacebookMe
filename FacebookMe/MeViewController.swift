@@ -56,18 +56,20 @@ extension MeViewController: UITableViewDataSource{
         return sectionList.count
     }
     
-    //섹션 타이틀 반환
+    //섹션 헤더 타이틀 반환
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionList[section]
     }
     
+    //두번째 섹션에 타이틀 없는 푸터 추가
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         if section == 1 {
             return " "
         }
         return ""
     }
-    //셀 몇 개
+    
+    //섹션 별 셀 개수 반환
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 0 {
@@ -85,7 +87,7 @@ extension MeViewController: UITableViewDataSource{
         }
         
     }
-    //셀 어떻게 보여줄까
+    //섹션 별 알맞은 커스텀 테이블뷰셀 생성하여 반환
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
      
         switch indexPath.section {
@@ -100,12 +102,15 @@ extension MeViewController: UITableViewDataSource{
             
             
         case 1://두번째 섹션
-            if indexPath.row == basicList.count {//두번째 섹션의 가장 마지막 셀, See More 버튼
+            
+            //두번째 섹션의 가장 마지막 셀, See More 버튼
+            if indexPath.row == basicList.count {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "addCell", for: indexPath) as! AddCell
                 cell.addButton?.setTitle("See More...", for: .normal)
                 return cell
-                
-            } else {//두번째 섹션의 마지막 셀을 제외한 셀
+            
+            //두번째 섹션의 마지막 셀을 제외한 셀
+            } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "generalCell", for: indexPath) as! GeneralCell
             cell.iconImg?.image = basicList[indexPath.row].image
             cell.menuLabel?.text = basicList[indexPath.row].name
@@ -120,7 +125,8 @@ extension MeViewController: UITableViewDataSource{
                     cell.addButton?.setTitle("Add Favorites...", for: .normal)
                     return cell
                     
-                } else {//세번째 섹션의 마지막 셀을 제외한 셀
+                    //세번째 섹션의 마지막 셀을 제외한 셀
+                } else {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "generalCell", for: indexPath) as! GeneralCell
                     cell.iconImg?.image = favoriteList[indexPath.row].image
                     cell.menuLabel?.text = favoriteList[indexPath.row].name
