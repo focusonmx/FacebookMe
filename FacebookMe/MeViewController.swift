@@ -101,8 +101,8 @@ extension MeViewController: UITableViewDataSource{
             
         case 1://두번째 섹션
             if indexPath.row == basicList.count {//두번째 섹션의 가장 마지막 셀, See More 버튼
-                let cell = tableView.dequeueReusableCell(withIdentifier: "btnCell", for: indexPath) as! BtnCell
-                cell.addBtn?.setTitle("See More...", for: .normal)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "addCell", for: indexPath) as! AddCell
+                cell.addButton?.setTitle("See More...", for: .normal)
                 return cell
                 
             } else {//두번째 섹션의 마지막 셀을 제외한 셀
@@ -116,8 +116,8 @@ extension MeViewController: UITableViewDataSource{
             
         case 2://세번째 섹션
                 if indexPath.row == favoriteList.count {//세번째 섹션의 가장 마지막 셀, Add Favorite 버튼
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "btnCell", for: indexPath) as! BtnCell
-                    cell.addBtn?.setTitle("Add Favorites...", for: .normal)
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "addCell", for: indexPath) as! AddCell
+                    cell.addButton?.setTitle("Add Favorites...", for: .normal)
                     return cell
                     
                 } else {//세번째 섹션의 마지막 셀을 제외한 셀
@@ -139,7 +139,7 @@ extension MeViewController: UITableViewDataSource{
             
         case 4:// 다섯번째 섹션
             let cell = tableView.dequeueReusableCell(withIdentifier: "logOutCell", for: indexPath) as! LogOutCell
-            cell.logOutBtn?.setTitle("Log Out",for: .normal)
+            cell.logOutButton?.setTitle("Log Out",for: .normal)
             return cell
             
             

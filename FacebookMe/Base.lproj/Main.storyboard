@@ -128,7 +128,7 @@
                                             <outlet property="menuLabel" destination="ABF-f3-gDX" id="Ss3-ZF-JAF"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="btnCell" id="4TK-yN-Tzf" customClass="BtnCell" customModule="FacebookMe" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addCell" id="4TK-yN-Tzf" customClass="AddCell" customModule="FacebookMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="172.00000381469727" width="375" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4TK-yN-Tzf" id="4ML-lV-WMC">
@@ -149,7 +149,7 @@
                                         </constraints>
                                         <inset key="separatorInset" minX="50" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
-                                            <outlet property="addBtn" destination="0ot-tn-ovd" id="Yqs-Gg-n1O"/>
+                                            <outlet property="addButton" destination="0ot-tn-ovd" id="IQN-1t-Zps"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="logOutCell" id="Fo9-5T-vPa" customClass="LogOutCell" customModule="FacebookMe" customModuleProvider="target">
@@ -174,7 +174,7 @@
                                             <constraint firstItem="lgf-mv-BJO" firstAttribute="centerY" secondItem="Fo9-5T-vPa" secondAttribute="centerY" id="IOe-5F-QaR"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="logOutBtn" destination="lgf-mv-BJO" id="yqr-78-q0Z"/>
+                                            <outlet property="logOutButton" destination="lgf-mv-BJO" id="hAr-t8-1yZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

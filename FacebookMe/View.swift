@@ -20,10 +20,10 @@ class GeneralCell: UITableViewCell {
     @IBOutlet weak var chevImg: UIImageView!
 }
 
-class BtnCell: UITableViewCell {//btn -> button 줄이지않기
-    @IBOutlet weak var addBtn: UIButton!
+class AddCell: UITableViewCell {//btn -> button 줄이지않기
+    @IBOutlet weak var addButton: UIButton!
 }
 
 class LogOutCell: UITableViewCell {
-    @IBOutlet weak var logOutBtn: UIButton!
+    @IBOutlet weak var logOutButton: UIButton!
 }
